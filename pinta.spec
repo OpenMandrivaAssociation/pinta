@@ -19,7 +19,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 ExclusiveArch: %ix86 x86_64 ppc ppc64 ia64 %{arm} sparcv9 alpha s390x
 
 Requires:	hicolor-icon-theme
-BuildRequires:	mono-devel, gtk-sharp2-devel, gettext, desktop-file-utils, glib-sharp2
+BuildRequires:	mono-devel, gtk-sharp2-devel, gtk-sharp2, gettext, desktop-file-utils, glib-sharp2
 
 %description
 Pinta is an image drawing/editing program.
