@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
-Name:		pinta
-Version:	1.0
-Release:	%mkrel 1
+Name:	    pinta
+Version:	1.4
+Release:	1
 Summary:	An easy to use drawing and image editing program
 
 Group:		Graphics
@@ -11,15 +11,16 @@ Group:		Graphics
 License:	MIT and CC-BY
 URL:		http://pinta-project.com/
 
-Source0:	http://github.com/downloads/jpobst/Pinta/%{name}-%{version}.tar.gz
-      
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
-# Mono only available on these:
-ExclusiveArch: %ix86 x86_64 ppc ppc64 ia64 %{arm} sparcv9 alpha s390x
+Source0:	http://github.com/downloads/PintaProject/Pinta/%{name}-%{version}.tar.gz
 
 Requires:	hicolor-icon-theme
-BuildRequires:	mono-devel, gtk-sharp2-devel, gtk-sharp2, gettext, desktop-file-utils, glib-sharp2
+Requires:	mono-addins
+BuildRequires:	mono-devel
+BuildRequires:	gtk-sharp2-devel
+BuildRequires:	gettext
+BuildRequires:	desktop-file-utils
+BuildRequires:	intltool
+BuildRequires:	mono-addins-devel
 
 %description
 Pinta is an image drawing/editing program.
@@ -28,40 +29,31 @@ It's goal is to provide a simplified alternative to GIMP for casual users.
 %prep
 %setup -q
 
-chmod -x readme.txt
+chmod -x readme.md
 chmod -x license-mit.txt
 chmod -x license-pdn.txt
-chmod -x todo.txt
 chmod -x xdg/pinta.1
-chmod -x xdg/pinta.desktop
 chmod -x xdg/pinta.xpm
 chmod -x xdg/scalable/pinta.svg
 
-sed -i 's/\r//' readme.txt
+sed -i 's/\r//' readme.md
 sed -i 's/\r//' license-mit.txt
 sed -i 's/\r//' license-pdn.txt
-sed -i 's/\r//' todo.txt
 sed -i 's/\r//' pinta.in
-sed -i 's/\r//' xdg/pinta.desktop
 sed -i 's/\r//' xdg/pinta.xpm
 sed -i 's/\r//' xdg/pinta.1
 sed -i 's/\r//' xdg/scalable/pinta.svg
 
-sed -i -e 's!$(InstallPrefix)/lib/!$(InstallPrefix)/%{_lib}/!' Pinta/Pinta.csproj
-sed -i -e 's!@prefix@/lib/!%{_libdir}/!' pinta.in
-sed -i -i 's!$(InstallPrefix)/lib/!$(InstallPrefix)/%{_lib}/!' Pinta.Install.proj
-
 %build
 %configure
-make %{?_smp_mflags}
+%make
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot}
+%makeinstall_std
 
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 
-%find_lang %name
+%find_lang %{name}
   
 %post
 update-desktop-database &> /dev/null ||:
@@ -79,22 +71,12 @@ fi
 %posttrans
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root,-)
-%doc todo.txt readme.txt license-mit.txt license-pdn.txt
+%doc readme.md license-mit.txt license-pdn.txt
 %{_libdir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/*/%{name}.*
 %{_datadir}/man/man1/%{name}*
 %{_datadir}/pixmaps/%{name}*
-
-
-%changelog
-* Mon Oct 03 2011 Александр Казанцев <kazancas@mandriva.org> 1.0-1mdv2011.0
-+ Revision: 702606
-- imported package pinta
 
