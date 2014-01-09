@@ -17,10 +17,12 @@ Requires:	hicolor-icon-theme
 Requires:	mono-addins
 BuildRequires:	mono-devel
 BuildRequires:	gtk-sharp2-devel
+BuildRequires:	gtk-sharp2
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	mono-addins-devel
+BuildRequires:	glib-sharp2
 
 %description
 Pinta is an image drawing/editing program.
@@ -79,4 +81,3 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/*/%{name}.*
 %{_datadir}/man/man1/%{name}*
 %{_datadir}/pixmaps/%{name}*
-
