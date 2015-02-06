@@ -2,7 +2,7 @@
 
 Name:	    pinta
 Version:	1.4
-Release:	1
+Release:	2
 Summary:	An easy to use drawing and image editing program
 
 Group:		Graphics
