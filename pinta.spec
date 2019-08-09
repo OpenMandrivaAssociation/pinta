@@ -31,47 +31,18 @@ It's goal is to provide a simplified alternative to GIMP for casual users.
 %prep
 %setup -q
 
-chmod -x readme.md
-chmod -x license-mit.txt
-chmod -x license-pdn.txt
-chmod -x xdg/pinta.1
-chmod -x xdg/pinta.xpm
-chmod -x xdg/scalable/pinta.svg
-
-sed -i 's/\r//' readme.md
-sed -i 's/\r//' license-mit.txt
-sed -i 's/\r//' license-pdn.txt
-sed -i 's/\r//' pinta.in
-sed -i 's/\r//' xdg/pinta.xpm
-sed -i 's/\r//' xdg/pinta.1
-sed -i 's/\r//' xdg/scalable/pinta.svg
+# update the project and solution files for mono4
+find . -name "*.sln" -print -exec sed -i 's/Format Version 10.00/Format Version 11.00/g' {} \;
+find . \( -name "*.csproj" -o -name "*.proj" \) -print -exec sed -i 's#ToolsVersion="3.5"#ToolsVersion="4.0"#g; s#<TargetFrameworkVersion>.*</TargetFrameworkVersion>##g; s#<PropertyGroup>#<PropertyGroup><TargetFrameworkVersion>v4.5</TargetFrameworkVersion>#g; s#Mono.Posix, Version.*"#Mono.Posix"#g' {} \;
 
 %build
-%configure
-%make
+%configure2_5x
+%make_build
 
 %install
-%makeinstall_std
-
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
+%make_install
 
 %find_lang %{name}
-  
-%post
-update-desktop-database &> /dev/null ||:
-
-touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun
-update-desktop-database &> /dev/null || :
-
-if [ $1 -eq 0 ] ; then
-    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans
-gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -f %{name}.lang
 %doc readme.md license-mit.txt license-pdn.txt
