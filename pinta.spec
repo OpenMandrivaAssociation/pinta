@@ -14,14 +14,14 @@ URL:		http://pinta-project.com/
 Source0:	http://github.com/downloads/PintaProject/Pinta/%{name}-%{version}.tar.gz
 
 Requires:	hicolor-icon-theme
-Requires:	mono-addins
+#Requires:	mono-addins
 BuildRequires:	mono-devel
 BuildRequires:	gtk-sharp2-devel
 BuildRequires:	gtk-sharp2
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
-BuildRequires:	mono-addins-devel
+#BuildRequires:	mono-addins-devel
 BuildRequires:	glib-sharp2
 
 %description
