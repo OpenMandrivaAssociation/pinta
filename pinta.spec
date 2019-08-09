@@ -15,6 +15,8 @@ Source0:	http://github.com/downloads/PintaProject/Pinta/%{name}-%{version}.tar.g
 
 Requires:	hicolor-icon-theme
 #Requires:	mono-addins
+BuildRequires:  autoconf
+BuildRequires:  autogen
 BuildRequires:  gettext
 BuildRequires:  libtool
 BuildRequires:	mono-devel
