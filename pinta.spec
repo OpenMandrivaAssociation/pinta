@@ -15,6 +15,7 @@ Source0:	http://github.com/downloads/PintaProject/Pinta/%{name}-%{version}.tar.g
 
 Requires:	hicolor-icon-theme
 #Requires:	mono-addins
+BuildRequires:  gettext
 BuildRequires:	mono-devel
 BuildRequires:	gtk-sharp2-devel
 BuildRequires:	gtk-sharp2
