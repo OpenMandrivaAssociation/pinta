@@ -22,6 +22,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	mono-addins-devel
 BuildRequires:	glib-sharp2
+BuildRequires:  glib-gettextize
 
 %description
 Pinta is an image drawing/editing program.
