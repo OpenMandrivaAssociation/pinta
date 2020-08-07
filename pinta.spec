@@ -1,17 +1,16 @@
 %global debug_package %{nil}
 
 Name:	    pinta
-Version:	1.6
+Version:	1.7
 Release:	1
 Summary:	An easy to use drawing and image editing program
-
 Group:		Graphics
 
 # the code is licensed under the MIT license while the icons are licensed as CC-BY
 License:	MIT and CC-BY
 URL:		http://pinta-project.com/
 
-Source0:	http://github.com/downloads/PintaProject/Pinta/%{name}-%{version}.tar.gz
+Source0:	https://github.com/PintaProject/Pinta/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 Requires:	hicolor-icon-theme
 Requires:	mono-addins
@@ -31,29 +30,27 @@ It's goal is to provide a simplified alternative to GIMP for casual users.
 %prep
 %setup -q
 
-chmod -x readme.md
-chmod -x license-mit.txt
-chmod -x license-pdn.txt
-chmod -x xdg/pinta.1
-chmod -x xdg/pinta.xpm
-chmod -x xdg/scalable/pinta.svg
+#chmod -x readme.md
+#chmod -x license-mit.txt
+#chmod -x license-pdn.txt
+#chmod -x xdg/pinta.1
+#chmod -x xdg/pinta.xpm
+#chmod -x xdg/scalable/pinta.svg
 
-sed -i 's/\r//' readme.md
-sed -i 's/\r//' license-mit.txt
-sed -i 's/\r//' license-pdn.txt
-sed -i 's/\r//' pinta.in
-sed -i 's/\r//' xdg/pinta.xpm
-sed -i 's/\r//' xdg/pinta.1
-sed -i 's/\r//' xdg/scalable/pinta.svg
+#sed -i 's/\r//' readme.md
+#sed -i 's/\r//' license-mit.txt
+#sed -i 's/\r//' license-pdn.txt
+#sed -i 's/\r//' pinta.in
+#sed -i 's/\r//' xdg/pinta.xpm
+#sed -i 's/\r//' xdg/pinta.1
+#sed -i 's/\r//' xdg/scalable/pinta.svg
 
 %build
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
-
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
+%make_install
 
 %find_lang %{name}
   
