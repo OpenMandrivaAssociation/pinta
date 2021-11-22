@@ -68,5 +68,4 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/*/%{name}.*
 %{_datadir}/man/man1/%{name}*
 %{_datadir}/pixmaps/%{name}*
-%{_datadir}/appdata/pinta.appdata.xml
 %{_datadir}/metainfo/pinta.appdata.xml
