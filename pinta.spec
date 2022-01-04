@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:	    pinta
-Version:	1.7.1
+Version:	2.0
 Release:	1
 Summary:	An easy to use drawing and image editing program
 Group:		Graphics
@@ -17,6 +17,7 @@ Requires:	mono-addins
 Requires: mono
 Requires: gtk-sharp2
 Requires: glib-sharp2
+BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:	mono-devel
 BuildRequires:	gtk-sharp2-devel
 BuildRequires:	gtk-sharp2
