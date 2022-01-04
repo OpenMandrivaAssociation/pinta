@@ -18,13 +18,13 @@ Requires: mono
 Requires: gtk-sharp2
 Requires: glib-sharp2
 BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:	mono-devel
-BuildRequires:	gtk-sharp2-devel
-BuildRequires:	gtk-sharp2
+#BuildRequires:	mono-devel
+#BuildRequires:	gtk-sharp2-devel
+#BuildRequires:	gtk-sharp2
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
-BuildRequires:	mono-addins-devel
+#BuildRequires:	mono-addins-devel
 BuildRequires:	glib-sharp2
 BuildRequires:  glib-gettextize
 
