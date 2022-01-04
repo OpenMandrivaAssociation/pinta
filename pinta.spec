@@ -25,7 +25,7 @@ BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 #BuildRequires:	mono-addins-devel
-BuildRequires:	glib-sharp2
+#BuildRequires:	glib-sharp2
 BuildRequires:  glib-gettextize
 
 %description
