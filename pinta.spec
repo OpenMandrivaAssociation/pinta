@@ -18,7 +18,7 @@ Requires: mono
 Requires: gtk-sharp2
 Requires: glib-sharp2
 BuildRequires:  pkgconfig(gtk+-3.0)
-#BuildRequires:	mono-devel
+BuildRequires:	mono-devel
 #BuildRequires:	gtk-sharp2-devel
 #BuildRequires:	gtk-sharp2
 BuildRequires:	gettext
