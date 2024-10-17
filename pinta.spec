@@ -8,7 +8,7 @@ Group:		Graphics
 
 # the code is licensed under the MIT license while the icons are licensed as CC-BY
 License:	MIT and CC-BY
-URL:		http://pinta-project.com/
+URL:		https://pinta-project.com/
 
 Source0:	https://github.com/PintaProject/Pinta/releases/download/%{version}/%{name}-%{version}.tar.gz
 
