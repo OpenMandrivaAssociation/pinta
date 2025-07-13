@@ -18,6 +18,7 @@ BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
+BuildRequires:  autoconf-archive
 BuildRequires:  glib-gettextize
 # No longer use mono
 BuildRequires:  dotnet-sdk
