@@ -14,7 +14,7 @@ Source0:	https://github.com/PintaProject/Pinta/releases/download/%{version}/%{na
 
 Requires:	hicolor-icon-theme
 BuildRequires:  pkgconfig(gtk4)
-BuildRequires:  pkgconfig(libadwaita)
+BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
