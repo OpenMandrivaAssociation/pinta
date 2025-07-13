@@ -1,39 +1,33 @@
 %global debug_package %{nil}
 
 Name:	    pinta
-Version:	2.0
+Version:	3.0.2
 Release:	1
 Summary:	An easy to use drawing and image editing program
 Group:		Graphics
 
 # the code is licensed under the MIT license while the icons are licensed as CC-BY
 License:	MIT and CC-BY
-URL:		http://pinta-project.com/
+URL:		https://pinta-project.com/
 
 Source0:	https://github.com/PintaProject/Pinta/releases/download/%{version}/%{name}-%{version}.tar.gz
 
 Requires:	hicolor-icon-theme
-Requires:	mono-addins
-Requires: mono
-Requires: gtk-sharp2
-Requires: glib-sharp2
-BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:	mono-devel
-#BuildRequires:	gtk-sharp2-devel
-#BuildRequires:	gtk-sharp2
+BuildRequires:  pkgconfig(gtk4)
+BuildRequires:  pkgconfig(libadwaita)
 BuildRequires:	gettext
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
-#BuildRequires:	mono-addins-devel
-#BuildRequires:	glib-sharp2
 BuildRequires:  glib-gettextize
+# No longer use mono
+BuildRequires:  dotnet-sdk
 
 %description
 Pinta is an image drawing/editing program.
 It's goal is to provide a simplified alternative to GIMP for casual users.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure
