@@ -22,6 +22,7 @@ BuildRequires:  autoconf-archive
 BuildRequires:  glib-gettextize
 # No longer use mono
 BuildRequires:  dotnet-sdk
+BuildRequires:  dotnet-runtime
 
 %description
 Pinta is an image drawing/editing program.
