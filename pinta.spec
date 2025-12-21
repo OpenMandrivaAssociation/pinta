@@ -17,6 +17,11 @@ Requires:	mono-addins
 Requires: mono
 Requires: gtk-sharp2
 Requires: glib-sharp2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	mono-devel
 BuildRequires:	gtk-sharp2-devel
 BuildRequires:	gtk-sharp2
