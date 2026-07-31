@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:	    pinta
-Version:	2.1.2
+Version:	3.1.2
 Release:	1
 Summary:	An easy to use drawing and image editing program
 Group:		Graphics
